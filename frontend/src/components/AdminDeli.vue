@@ -1,5 +1,6 @@
 <template>
-  <v-container class="mx-auto">
+  <v-container text-center>
+    <p id="title">Blend list</p>
     <v-row>
     <v-card
       class="ma-2"
@@ -27,7 +28,6 @@
         >
           <v-card>
             <v-card-title
-
               primary-title
             >
               배달 정보를 등록해주세요
@@ -114,13 +114,14 @@ export default {
       year: '',
       month: '',
       weeks: '',
+      gender: 'F',
+      age: 20,
+      ages: [10, 20, 30, 40, 50, 60, 70, 80, 90],
+      ratings: null
     }
   },
   mounted() {
     this.allItem()
-  },
-  components: {
-
   },
   methods: {
     allItem() {
@@ -134,7 +135,17 @@ export default {
         this.listpercents=response.data.percents
         console.log(response.data)
       });
-      },
+    },
+    async recommand() {
+      let __this = this;
+      await axios.post('/api/filtering/', {
+        gender: __this.gender,
+        age: __this.age
+      }).then(res => {
+        __this.ratings = res.data
+        console.log(res.data)
+      })
+    },
     add_delivery(id,name){
       console.log(id)
       if (this.flag_d == false) {
@@ -190,15 +201,19 @@ export default {
 </script>
 <style>
   dis {
-          width: 100%;
-          height: 190px;
-      }
-      dis.left {
-          width: 50%;
-          float: left;
-      }
-      dis.right {
-          width: 50%;
-          float: right;
-      }
+    width: 100%;
+    height: 190px;
+  }
+  dis.left {
+    width: 50%;
+    float: left;
+  }
+  dis.right {
+    width: 50%;
+    float: right;
+  }
+  #title {
+    font-family: 'Acme', sans-serif;
+    font-size: 50px;
+  }
 </style>

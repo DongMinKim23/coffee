@@ -1,6 +1,7 @@
 <template>
-    <v-container>
-        <v-card>
+    <v-container text-center>
+        <p id="title">Preference</p>
+        <v-card class="mx-auto" style="width:700px">
             <v-card-text>
                 <v-layout>
                     <p>Gender</p>
@@ -77,3 +78,9 @@ export default {
     }
 }
 </script>
+<style scoped>
+    #title {
+        font-family: 'Acme', sans-serif;
+        font-size: 50px;
+    }
+</style>

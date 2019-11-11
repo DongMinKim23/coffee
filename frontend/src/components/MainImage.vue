@@ -15,7 +15,7 @@ export default {
     }
   },
   mounted () {
-    // this.repeatGIF();
+    // this.repeatGIF();...
   },
   methods: {
     // repeatGIF: function() {

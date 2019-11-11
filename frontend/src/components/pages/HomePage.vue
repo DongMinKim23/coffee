@@ -65,7 +65,7 @@
                 class="white--text align-end"
                 height="200px"
                 :src="item.image">
-                <v-card-title>{{item.name}}</v-card-title>
+                <v-card-title>{{item.name}} {{BlendPercents[i]}}%</v-card-title>
               </v-img>
 
               <v-card-subtitle class="pb-0">{{item.country}}</v-card-subtitle>
@@ -74,9 +74,13 @@
               </v-card-text>
             </v-card>
           </div>
+          <br>
+          <v-card>
+            <v-card-title id="month_content">
+            {{ this.monthBlend }}
+            </v-card-title>
+          </v-card>
         </div>
-        <p id="month_content"
-          >{{ this.monthBlend }}</p>
       </v-card>
     </v-row>
     <!-- 이 달의 원두 -->
@@ -144,7 +148,8 @@ export default {
       user:"",
       now_data:"",
       monthBlend:"",
-      monthItem:""
+      monthItem:"",
+      BlendPercents: [],
     }
   },
   created () {
@@ -174,6 +179,7 @@ export default {
         console.log(res.data)
         this.monthBlend = res.data.blend.content
         this.monthItem = res.data.items
+        this.BlendPercents = res.data.percents
         console.log(this.monthBlend)
         console.log(this.monthItem)
       })
@@ -187,7 +193,7 @@ export default {
     text-align: left;
   }
   #home_plot2 {
-    font-size:1.3rem;
+    font-size:1.4rem;
     font-family: 'Gaegu', cursive;
     /* text-align: center; */
   }
@@ -235,17 +241,17 @@ export default {
     text-align: center;
   }
   #month_card {
-    background-image: url('../../../public/img/month_bean.jpg');
-    background-color: rgba( 255, 0, 255, 0.5 );
+    background-image: url('../../../public/img/background_month.png');
+    background-color: #ffb89880;
     /* background-color: #ffffff; */
     /* opacity: 0.5; */
     background-size: cover;
     width: 100%;
-    height: 800px;
+    height: 450px;
   }
   #month_content {
-    font-family: 'Noto Serif KR', serif; 
-    font-size: 30px;
-    color: white;
+    font-family: 'Noto Serif KR', serif;
+    text-align: center;
+    /* font-size: 30px; */
   }
 </style>

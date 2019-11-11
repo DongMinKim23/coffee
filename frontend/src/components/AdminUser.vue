@@ -1,6 +1,6 @@
 <template>
   <v-container text-center>
-    <h1>유저 관리</h1>
+    <p id="title">Users</p>
     <v-row>
     <div v-for="(user, i) in users" v-bind:key="i" style="width:300px;">
       <v-hover v-slot:default="{ hover }">
@@ -64,5 +64,8 @@ export default {
 }
 </script>
 <style scoped>
-
+  #title {
+    font-family: 'Acme', sans-serif;
+    font-size: 50px;
+  }
 </style>

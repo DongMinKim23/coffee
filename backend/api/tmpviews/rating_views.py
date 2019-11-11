@@ -27,7 +27,7 @@ def get_item(request):
             flag[1] = True
             items[1] = delivery[0].in_item.id
             method[1] = delivery[0].in_item.method
-        result = [flag, items,method]
+        result = [flag, items, method]
         return Response(data=result, status=status.HTTP_200_OK)
 
 @api_view(['POST'])

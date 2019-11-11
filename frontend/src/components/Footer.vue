@@ -29,7 +29,7 @@
       <v-divider></v-divider>
 
       <v-card-text class="white--text">
-        Copyright ⓒ {{ new Date().getFullYear() }} by <strong>노승만</strong>
+        Copyright ⓒ {{ new Date().getFullYear() }} by <strong>황여진/이헌규/정태현/김동민</strong>
       </v-card-text>
     </v-card>
   </v-footer>

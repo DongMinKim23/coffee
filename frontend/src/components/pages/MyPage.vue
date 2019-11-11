@@ -1,7 +1,7 @@
 <template>
   <v-container text-center class="col">
-    <p>My Page</p>
-    <v-card>
+    <p id="title">My Page</p>
+    <v-card style="width:700px;" class="mx-auto">
       <v-card-text>
         <v-container>
           <v-text-field
@@ -28,7 +28,7 @@
       </v-card-actions>
     </v-card>
     <!-- 구독 서비스 -->
-    <div v-if="approval" class="mx-auto">
+    <div v-if="approval" class="mx-auto" style="width:500px;">
       <v-card v-if="before_extend" class="mx-3 my-3 px-8 py-3">
         <v-card-title style="font-size: 1.2rem;">{{username}}님의 구독 유효 기간 <span style="padding-left: 0.7rem;">{{sub_date}}</span></v-card-title>
         <v-card-text>
@@ -92,7 +92,7 @@
       </v-card>
     </div>
 
-    <div v-else-if="!approval" class="mx-auto">
+    <div v-else-if="!approval" class="mx-auto" style="width:500px;">
       <v-card v-if="before_create" class="mx-3 my-3 px-8 py-3">
         <v-card-text>
           <p style="font-size: 1rem; text-align: left;">{{username}}님은 커피 구독을 이용한 적이 없어요.</p>
@@ -114,6 +114,7 @@
 <script>
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import router from '../../router';
 
 export default {
   data() {
@@ -263,3 +264,9 @@ export default {
   }
 }
 </script>
+<style scoped>
+  #title {
+    font-family: 'Acme', sans-serif;
+    font-size: 50px;
+  }
+</style>

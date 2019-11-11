@@ -11,6 +11,7 @@ def filtering(request):
         age = request.data.get('age')
         start = 2019-int(age)+1
         users = list(Profile.objects.filter(gender=gender, years__lte=start, years__gt=start-10))
+        
         ratings = {}
         cnt = 0
         for user in users:
@@ -29,5 +30,6 @@ def filtering(request):
             result.append((score, name))
         result.sort(reverse=True)
         data = result[:10]
+        print(data)
     return Response(data=data, status=status.HTTP_200_OK)
 

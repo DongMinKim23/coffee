@@ -1,6 +1,6 @@
 <template>
   <v-container text-center>
-    <h1>구독 관리</h1>
+    <p id="title">Subscriptions</p>
     <v-layout column>
       <v-flex>
         <li v-if="subscription.approval==false" 
@@ -50,5 +50,8 @@ export default {
 }
 </script>
 <style scoped>
-
+  #title {
+    font-family: 'Acme', sans-serif;
+    font-size: 50px;
+  }
 </style>

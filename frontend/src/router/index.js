@@ -39,7 +39,7 @@ const router = new VueRouter({
         { path: "/admin/blend", component: AdminBlend, name: 'adminblend' },
         { path: "/admin/deli", component: AdminDeli, name: 'admindeli' },
         { path: "/rating", component: RatingPage, name: 'rating' },
-        { path: "/filtering", component: FilterPage, name: 'filtering'},
+        { path: "/filtering", component: FilterPage, name: 'filtering' },
     ],
     scrollBehavior() {
         return { x: 0, y: 0 }

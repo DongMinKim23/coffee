@@ -58,11 +58,12 @@ def list_blend(request) :
 def this_delivery(request,year,month) :
     print('이번달 배송상품')
     print(year,month)
-    serializer={'delivery':[],'blend':[],'items':[]}
+    serializer={'delivery':[],'blend':[],'items':[],'percents':[]}
     delivery=Delivery.objects.filter(year=int(year), month=int(month))
     print(delivery[0].in_item)
     serializer['delivery'] = DeliverySerializer(delivery[0]).data
     serializer['blend'] = BlendSerializer(delivery[0].in_item).data
+    serializer['percents'] = delivery[0].in_item.percents.split(',')
     print(delivery[0].in_item.items.all())
     serializer['items'] = ItemSerializer(delivery[0].in_item.items.all(),many=True).data
     return Response(data=serializer,status=status.HTTP_200_OK)

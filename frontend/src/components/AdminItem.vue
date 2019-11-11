@@ -1,6 +1,6 @@
 <template>
   <v-container text-center>
-    <h1>원두 관리</h1>
+    <p id="title">Items</p>
     <v-row>
       <div v-for="(item, i) in listData" v-bind:key="i">
       <v-hover v-slot:default="{ hover }">
@@ -68,3 +68,9 @@ export default {
   }
 }
 </script>
+<style scoped>
+  #title {
+    font-family: 'Acme', sans-serif;
+    font-size: 50px;
+  }
+</style>
